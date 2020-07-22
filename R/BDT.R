@@ -62,10 +62,6 @@
 #' If \code{TRUE}, then item selection will be constrained so that the
 #' correct answers are distributed as evenly as possible over the course of the test.
 #' We recommend leaving this option disabled.
-#' @param fix_first_item (Logical scalar)
-#' If \code{TRUE}, then the first test item will be constrained to a fixed
-#' pair of possible items, following the procedure used in the original BDT paper.
-#' We recommend leaving this option disabled.
 #' @param dict The psychTestR dictionary used for internationalisation.
 #' @note Versions <= 0.3.0 of this package experimented with weighted likelihood
 #' ability estimation for item selection. Pilot testing found this approach
@@ -80,16 +76,15 @@ BDT <- function(
   num_items = 25L,
   take_training = TRUE,
   label = "BDT",
-  feedback = BDT.feedback.no_score(),
-  item_bank_audio = "https://media.gold-msi.org/test_materials/BDT/v1/audio",
-  practice_items = "https://media.gold-msi.org/test_materials/BDT/v1/practice-items",
+  feedback = NULL,
+  item_bank_audio = "https://media.gold-msi.org/test_materials/BDT/",
+  practice_items = "https://media.gold-msi.org/test_materials/BDT/",
   next_item.criterion = "bOpt",
   next_item.estimator = "BM",
   next_item.prior_dist = "norm",
   next_item.prior_par = c(0, 1),
   final_ability.estimator = "WL",
   constrain_answers = FALSE,
-  fix_first_item = FALSE,
   dict = BDT::BDT_dict
 ) {
   stopifnot(is.scalar.integerlike(num_items),

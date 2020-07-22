@@ -1,12 +1,6 @@
-item_bank <- read.csv("data-raw/item-bank.csv", stringsAsFactors = FALSE)
+BDT_item_bank <- read.csv("data-raw/BDT_item_bank.csv", stringsAsFactors = FALSE, sep = ";")
+BDT_item_bank$id <- 1:nrow(BDT_item_bank)
+BDT_item_bank$answer <- BDT_item_bank$on_off + 1
+BDT_item_bank <- BDT_item_bank[, c("id", "item_id", "difficulty", "discrimination", "guessing", "inattention", "answer")]
 
-for (col in c("difficulty_with_track_effect",
-              "track_random_intercept",
-              "track_random_slope")) {
-  item_bank[[col]] <- NULL
-}
-
-names(item_bank) <- plyr::revalue(names(item_bank),
-                                  c(difficulty_without_track_effect = "difficulty"))
-
-devtools::use_data(item_bank, overwrite = TRUE)
+usethis::use_data(BDT_item_bank, overwrite = TRUE)

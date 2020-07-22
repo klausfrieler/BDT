@@ -1,7 +1,3 @@
-input <- read.csv("data-raw/BDT-dict.csv", stringsAsFactors = FALSE)
-names(input)[[1]] <- "key"
-
-
-
-BDT_dict <- psychTestR::i18n_dict$new(input)
+BDT_dict_raw <- readRDS("data-raw/BDT_dict.RDS")
+BDT_dict <- psychTestR::i18n_dict$new(BDT_dict_raw)
 usethis::use_data(BDT_dict, overwrite = TRUE)

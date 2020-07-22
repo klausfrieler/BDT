@@ -2,4 +2,4 @@ library(BDT)
 
 BDT_standalone(num_items = 20, take_training = TRUE)
 # without training
-# standalone_cabat(num_items = 20, take_training = FALSE)
+# BDT_standalone(num_items = 20, take_training = FALSE)

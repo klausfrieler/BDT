@@ -6,7 +6,7 @@ get_options <- function(item_bank, arg) {
     next_item.prior_par = arg$next_item.prior_par,
     final_ability.estimator = arg$final_ability.estimator,
     constrain_answers = arg$constrain_answers,
-    avoid_duplicates = "track_name",
-    eligible_first_items = if (arg$fix_first_item) c(23L, 24L) else NULL
+    avoid_duplicates = "item_id",
+    eligible_first_items =  NULL
   )
 }

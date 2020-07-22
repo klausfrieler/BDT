@@ -10,29 +10,30 @@
 #' @param researcher_email (Scalar character)
 #' If not \code{NULL}, this researcher's email address is displayed
 #' at the bottom of the screen so that online participants can ask for help.
-#' Defaults to \email{p.m.c.harrison@qmul.ac.uk},
+#' Defaults to \email{ucine001@gold.ac.uk},
 #' the email address of this package's developer.
 #' @param dict The psychTestR dictionary used for internationalisation.
 #' @param ... Further arguments to be passed to \code{\link{BDT}()}.
 #' @export
-BDT_demo <- function(num_items = 10L,
+BDT_demo <- function(num_items = 3L,
                        feedback = psychTestRCAT::cat.feedback.graph("BDT"),
                        admin_password = "demo",
-                       researcher_email = "p.m.c.harrison@qmul.ac.uk",
+                       researcher_email = "ucine001@gold.ac.uk",
                        dict = BDT::BDT_dict,
                        ...) {
   elts <- c(
     psychTestR::new_timeline(psychTestR::one_button_page(
-      psychTestR::i18n("demo_intro"),
-      button_text = psychTestR::i18n("ABAT_0021_I_0001_1")
+      psychTestR::i18n("DEMO_INTRO"),
+      button_text = psychTestR::i18n("CONTINUE")
     ), dict = dict),
     BDT::BDT(num_items = num_items,
-                 feedback = feedback,
-                 dict = dict,
-                 ...),
+             take_training = TRUE,
+             feedback = feedback,
+             dict = dict,
+             ...),
     psychTestR::new_timeline(
       psychTestR::final_page(shiny::p(
-        psychTestR::i18n("you_may_close_browser")),
+        psychTestR::i18n("COMPLETED")),
       ), dict = dict))
 
   psychTestR::make_test(

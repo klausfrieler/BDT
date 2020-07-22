@@ -15,24 +15,20 @@
 #' @param dict The psychTestR dictionary used for internationalisation.
 #' @param ... Further arguments to be passed to \code{\link{BDT}()}.
 #' @export
-BDT_standalone <- function(title = "Beat Drop Alignment  Test",
-                             admin_password = "replace-with-secure-password",
-                             researcher_email = NULL,
-                             languages = BDT_languages(),
-                             dict = BDT::BDT_dict,
+BDT_standalone <- function(title = "Beat Drop Alignment Test",
+                           admin_password = "replace-with-secure-password",
+                           researcher_email = NULL,
+                           languages = BDT_languages(),
+                           feedback = NULL,
+                           dict = BDT::BDT_dict,
                              ...) {
   elts <- c(
-    psychTestR::new_timeline(
-      psychTestR::get_p_id(prompt = psychTestR::i18n("enter_p_id"),
-                           button_text = psychTestR::i18n("ABAT_0021_I_0001_1")),
-      dict = dict
-    ),
-    BDT(dict = dict, ...),
+    BDT(dict = dict, feedback = feedback, ...),
     psychTestR::elt_save_results_to_disk(complete = TRUE),
-    psychTestR::new_timeline(
+    if(is.null(feedback)) psychTestR::new_timeline(
       psychTestR::final_page(shiny::p(
-        psychTestR::i18n("results_have_been_saved"),
-        psychTestR::i18n("you_may_close_browser")),
+        psychTestR::i18n("COMPLETED"),
+        psychTestR::i18n("RESULTS_SAVED"))
       ), dict = dict)
   )
 
