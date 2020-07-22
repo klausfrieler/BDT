@@ -5,10 +5,11 @@
 \title{Standalone BDT}
 \usage{
 BDT_standalone(
-  title = "Beat Drop Alignment  Test",
+  title = "Beat Drop Alignment Test",
   admin_password = "replace-with-secure-password",
   researcher_email = NULL,
   languages = BDT_languages(),
+  feedback = NULL,
   dict = BDT::BDT_dict,
   ...
 )

@@ -5,10 +5,10 @@
 \title{Demo DBT}
 \usage{
 BDT_demo(
-  num_items = 10L,
+  num_items = 3L,
   feedback = psychTestRCAT::cat.feedback.graph("BDT"),
   admin_password = "demo",
-  researcher_email = "p.m.c.harrison@qmul.ac.uk",
+  researcher_email = "ucine001@gold.ac.uk",
   dict = BDT::BDT_dict,
   ...
 )
@@ -25,7 +25,7 @@ Defaults to \code{"demo"}.}
 \item{researcher_email}{(Scalar character)
 If not \code{NULL}, this researcher's email address is displayed
 at the bottom of the screen so that online participants can ask for help.
-Defaults to \email{p.m.c.harrison@qmul.ac.uk},
+Defaults to \email{ucine001@gold.ac.uk},
 the email address of this package's developer.}
 
 \item{dict}{The psychTestR dictionary used for internationalisation.}

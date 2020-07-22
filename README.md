@@ -6,7 +6,7 @@ The BDT is an adaptive test of beat perception ability.
 
 ## Citation
 
-When using the CA-BAT in your own research, you can cite the original BDT research paper that is yet to be written.
+When using the BDT in your own research, you can cite the original BDT research paper that is yet to be written.
 
 We also advise mentioning the software versions you used,
 in particular the versions of the `BDT`, `psychTestR`, and `psychTestRCAT` packages.
