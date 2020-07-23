@@ -13,6 +13,11 @@
 #' and German (\code{"DE"}).
 #' The first language is selected by default
 #' @param dict The psychTestR dictionary used for internationalisation.
+#' @param feedback (Null or a page)
+#' if NULL ther last page will show the "You completed the test" message along with "Your results have been save", else
+#' it will only show the latter but the feedback specified here.
+#' Currently, BDT.feedback.no_score() and BDT.feedback.simple_score() are supported (s. feedback.R).
+#' You can also design your own feedback function.
 #' @param ... Further arguments to be passed to \code{\link{BDT}()}.
 #' @export
 BDT_standalone <- function(title = "Beat Drop Alignment Test",

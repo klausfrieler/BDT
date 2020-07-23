@@ -1,6 +1,6 @@
 Package: BDT
 Title: R Implementation of the Beat Drop Alignment Test
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Klaus", "Frieler", email = "kf@omniversum.de", role = c("aut", "cre"))
 Description: R Implementation of the Beat Drop Alignment Test (BDT).
 Depends: R (>= 3.4.0)

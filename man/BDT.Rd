@@ -6,9 +6,10 @@
 \usage{
 BDT(
   num_items = 25L,
+  with_welcome = TRUE,
   take_training = TRUE,
-  label = "BDT",
   feedback = NULL,
+  label = "BDT",
   item_bank_audio = "https://media.gold-msi.org/test_materials/BDT/",
   practice_items = "https://media.gold-msi.org/test_materials/BDT/",
   next_item.criterion = "bOpt",
@@ -16,7 +17,7 @@ BDT(
   next_item.prior_dist = "norm",
   next_item.prior_par = c(0, 1),
   final_ability.estimator = "WL",
-  constrain_answers = FALSE,
+  constrain_answers = TRUE,
   dict = BDT::BDT_dict
 )
 }
@@ -24,8 +25,6 @@ BDT(
 \item{num_items}{(Integer scalar) Number of items in the test.}
 
 \item{take_training}{(Logical scalar) Whether to include the training phase.}
-
-\item{label}{(Character scalar) Label to give the BDT results in the output file.}
 
 \item{feedback}{Defines the feedback to give the participant
 at the end of the test. By default no feedback is given.
@@ -41,6 +40,8 @@ see function-level documentation for details):
 \item \code{\link[psychTestRCAT]{cat.feedback.irt}}
 \item \code{\link[psychTestRCAT]{cat.feedback.iq}}
 }}
+
+\item{label}{(Character scalar) Label to give the BDT results in the output file.}
 
 \item{item_bank_audio}{(Character scalar) File path to the directory
 hosting the item bank audio (typically a publicly accessible web directory).}

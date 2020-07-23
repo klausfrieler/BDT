@@ -9,8 +9,8 @@ BDT_standalone(
   admin_password = "replace-with-secure-password",
   researcher_email = NULL,
   languages = BDT_languages(),
-  feedback = NULL,
   dict = BDT::BDT_dict,
+  feedback = NULL,
   ...
 )
 }
@@ -30,6 +30,12 @@ and German (\code{"DE"}).
 The first language is selected by default}
 
 \item{dict}{The psychTestR dictionary used for internationalisation.}
+
+\item{feedback}{(Null or a page)
+if NULL ther last page will show the "You completed the test" message along with "Your results have been save", else
+it will only show the latter but the feedback specified here.
+Currently, BDT.feedback.no_score() and BDT.feedback.simple_score() are supported (s. feedback.R).
+You can also design your own feedback function.}
 
 \item{...}{Further arguments to be passed to \code{\link{BDT}()}.}
 }
