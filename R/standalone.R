@@ -19,17 +19,19 @@ BDT_standalone <- function(title = "Beat Drop Alignment Test",
                            admin_password = "replace-with-secure-password",
                            researcher_email = NULL,
                            languages = BDT_languages(),
-                           feedback = NULL,
                            dict = BDT::BDT_dict,
-                             ...) {
+                           feedback = NULL,
+                           ...) {
+  #browser()
   elts <- c(
-    BDT(dict = dict, feedback = feedback, ...),
+    BDT(with_welcome = TRUE, dict = dict, feedback = feedback, ...),
     psychTestR::elt_save_results_to_disk(complete = TRUE),
-    if(is.null(feedback)) psychTestR::new_timeline(
-      psychTestR::final_page(shiny::p(
-        psychTestR::i18n("COMPLETED"),
-        psychTestR::i18n("RESULTS_SAVED"))
-      ), dict = dict)
+    psychTestR::new_timeline(
+      psychTestR::final_page(
+        shiny::div(
+          if(is.null(feedback)) shiny::h4(psychTestR::i18n("COMPLETED")),
+          shiny::p(psychTestR::i18n("RESULTS_SAVED")))),
+      dict = dict)
   )
 
   psychTestR::make_test(

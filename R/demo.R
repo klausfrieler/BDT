@@ -28,7 +28,7 @@ BDT_demo <- function(num_items = 3L,
     ), dict = dict),
     BDT::BDT(num_items = num_items,
              take_training = TRUE,
-             feedback = feedback,
+             with_welcome = FALSE,
              dict = dict,
              ...),
     psychTestR::new_timeline(

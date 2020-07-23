@@ -74,9 +74,10 @@
 #' @export
 BDT <- function(
   num_items = 25L,
+  with_welcome = TRUE,
   take_training = TRUE,
-  label = "BDT",
   feedback = NULL,
+  label = "BDT",
   item_bank_audio = "https://media.gold-msi.org/test_materials/BDT/",
   practice_items = "https://media.gold-msi.org/test_materials/BDT/",
   next_item.criterion = "bOpt",
@@ -84,11 +85,13 @@ BDT <- function(
   next_item.prior_dist = "norm",
   next_item.prior_par = c(0, 1),
   final_ability.estimator = "WL",
-  constrain_answers = FALSE,
+  constrain_answers = TRUE,
   dict = BDT::BDT_dict
 ) {
+  #browser()
   stopifnot(is.scalar.integerlike(num_items),
             is.scalar.logical(take_training),
+            is.scalar.logical(with_welcome),
             is.scalar.character(label),
             is.scalar.character(item_bank_audio),
             is.scalar.character(practice_items),
@@ -102,6 +105,10 @@ BDT <- function(
   practice_items <- gsub("/$", "", practice_items)
   arg <- as.list(environment())
   psychTestR::join(
+    if(with_welcome) psychTestR::new_timeline(psychTestR::one_button_page(
+      shiny::h3(psychTestR::i18n("WELCOME")),
+      button_text = psychTestR::i18n("CONTINUE")
+    ), dict = dict),
     if (take_training) intro(practice_items = practice_items, dict = dict),
     main_test(arg, dict = dict),
     feedback
