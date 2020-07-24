@@ -9,7 +9,7 @@ show_item <- function(item_bank_audio) {
     labels <- lapply(c("ON", "OFF"), psychTestR::i18n)
     #browser()
     file_name <- sprintf("%s_%d.mp4", item$item_id, sample(tempo_variations, 1))
-    message(sprintf("Showing file %s (%d of %d)", file_name, item_number, num_items_in_test))
+    message(sprintf("Showing file %s (%d of %d), track: %s, answer: %s", file_name, item_number, num_items_in_test, item$track, item$answer))
     psychTestR::audio_NAFC_page(
       label = paste0("q", item_number),
       prompt = prompt,
