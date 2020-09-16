@@ -42,5 +42,5 @@ BDT_demo <- function(num_items = 3L,
                                    admin_password = admin_password,
                                    researcher_email = researcher_email,
                                    demo = TRUE,
-                                   languages = "EN"))
+                                   languages = "en"))
 }

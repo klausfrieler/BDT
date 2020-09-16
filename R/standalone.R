@@ -9,8 +9,8 @@
 #' at the bottom of the screen so that online participants can ask for help.
 #' @param languages (Character vector)
 #' Determines the languages available to participants.
-#' Possible languages include English (\code{"EN"}), French (\code{"French"}),
-#' and German (\code{"DE"}).
+#' Possible languages include English (\code{"en"})
+#' and German (\code{"de"}).
 #' The first language is selected by default
 #' @param dict The psychTestR dictionary used for internationalisation.
 #' @param feedback (Null or a page)
@@ -45,6 +45,6 @@ BDT_standalone <- function(title = "Beat Drop Alignment Test",
                                    admin_password = admin_password,
                                    researcher_email = researcher_email,
                                    demo = FALSE,
-                                   languages = languages)
+                                   languages = tolower(languages))
   )
 }
