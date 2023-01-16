@@ -21,6 +21,8 @@
 #' @param ... Further arguments to be passed to \code{\link{BDT}()}.
 #' @export
 BDT_standalone <- function(title = "Beat Drop Alignment Test",
+                           with_welcome = TRUE,
+                           take_training = TRUE,
                            admin_password = "replace-with-secure-password",
                            researcher_email = NULL,
                            languages = BDT_languages(),
@@ -29,7 +31,7 @@ BDT_standalone <- function(title = "Beat Drop Alignment Test",
                            ...) {
   #browser()
   elts <- c(
-    BDT(with_welcome = TRUE, dict = dict, feedback = feedback, ...),
+    BDT(with_welcome = with_welcome, take_training = take_training, dict = dict, feedback = feedback, ...),
     psychTestR::elt_save_results_to_disk(complete = TRUE),
     psychTestR::new_timeline(
       psychTestR::final_page(
