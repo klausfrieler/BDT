@@ -6,6 +6,8 @@
 \usage{
 BDT_standalone(
   title = "Beat Drop Alignment Test",
+  with_welcome = TRUE,
+  take_training = TRUE,
   admin_password = "replace-with-secure-password",
   researcher_email = NULL,
   languages = BDT_languages(),
