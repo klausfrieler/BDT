@@ -15,6 +15,8 @@ practice <- function(practice_items) {
                                                 sub = list(no_example = x$no))),
           url = file.path(practice_items, paste0(x$id, ".mp3")),
           choices = as.character(c(1, 2)),
+          #show_controls = TRUE,
+          autoplay = "moin",
           labels = lapply(c("ON", "OFF"), psychTestR::i18n),
           save_answer = FALSE
         ),

@@ -15,6 +15,8 @@ show_item <- function(item_bank_audio) {
       prompt = prompt,
       choices = choices,
       labels = labels,
+      autoplay = "moin",
+      #show_controls = TRUE,
       url = file.path(item_bank_audio, file_name),
       wait = TRUE,
       on_complete = NULL,

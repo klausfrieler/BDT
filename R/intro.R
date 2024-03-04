@@ -8,6 +8,8 @@ audio_ex_page <- function(prompt_id, url) {
     label = "ex",
     prompt = shiny::HTML(psychTestR::i18n(prompt_id)),
     choices = psychTestR::i18n("CONTINUE"),
+    #show_controls = TRUE,
+    autoplay = "moin",
     url = url,
     save_answer = FALSE
   )
